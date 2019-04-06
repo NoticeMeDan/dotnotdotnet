@@ -2,6 +2,7 @@ const five = require("johnny-five")
 const board = new five.Board({repl: false})
 
 let logs = []
+const deviceId = "Demo device 1234 lol"
 
 function logData(temp, moistureLvl) {
     logs.push({ temp, moistureLvl })
@@ -14,13 +15,13 @@ function logData(temp, moistureLvl) {
 
 function normalizeLogs(arr) {
     return {
-        temp: (arr.reduce((acc, log) => log.temp + acc, 0) / logs.length).toFixed(2),
+        temperature: (arr.reduce((acc, log) => log.temp + acc, 0) / logs.length).toFixed(2),
         moistureLvl: arr.reduce((acc, log) => log.moistureLvl + acc, 0) / logs.length
     }
 }
 
 function pushLog(log) {
-    console.log("Temperature: %d, Moisture: %d", log.temp, log.moistureLvl)
+    console.log("Temperature: %d, Moisture: %d, Device ID: '%s'", log.temperature, log.moistureLvl, deviceId)
 }
 
 board.on("ready", () => {
