@@ -12,7 +12,8 @@ const styles = theme => ({
     },
 });
 
-const App = ({ classes, user: [user, setUser] }) => {
+const App = ({ classes }) => {
+    const [user, setUser] = useState({name: 'guest'});
     const [data, setData] = useState();
 
     useEffect(() => {
