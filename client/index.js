@@ -7,9 +7,9 @@ board.on("ready", function() {
         controller: "TMP102"
     });
 
-    temperature.on("data", function() {
-        console.log("celsius: %d", this.C);
-        console.log("fahrenheit: %d", this.F);
-        console.log("kelvin: %d", this.K);
+    temperature.on("data", data => {
+        console.log("celsius: %d", data.C);
+        console.log("fahrenheit: %d", data.F);
+        console.log("kelvin: %d", data.K);
     });
 });
