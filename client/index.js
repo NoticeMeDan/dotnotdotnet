@@ -14,7 +14,7 @@ function logData(temp, moistureLvl) {
 
 function normalizeLogs(arr) {
     return {
-        temp: arr.reduce((acc, log) => log.temp + acc, 0) / logs.length,
+        temp: (arr.reduce((acc, log) => log.temp + acc, 0) / logs.length).toFixed(2),
         moistureLvl: arr.reduce((acc, log) => log.moistureLvl + acc, 0) / logs.length
     }
 }
