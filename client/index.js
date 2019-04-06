@@ -16,7 +16,7 @@ board.on("ready", function() {
     const sensor = new five.Sensor("A0");
 
     // Scale the sensor's data from 0-1023 to 0-10 and log changes
-    sensor.on("change", scaleTo => {
-        console.log(scaleTo(0, 10));
+    sensor.on("change", () => {
+        console.log(sensor.scaleTo(0, 10));
     });
 });
